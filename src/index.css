@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+  
+  --color-brand-primary: #4F46E5;
+  --color-brand-secondary: #10B981;
+  --color-brand-accent: #F59E0B;
+  --color-brand-danger: #EF4444;
+}
+
+body {
+  @apply bg-[#f8fafc] text-slate-900 font-sans;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+    radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
+  background-size: 100% 100%, 100% 100%, 24px 24px;
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.btn-primary {
+  @apply bg-brand-primary text-white px-4 py-2 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-primary/20;
+}
+
+.btn-secondary {
+  @apply bg-brand-secondary text-white px-4 py-2 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-secondary/20;
+}
+
