@@ -12,7 +12,9 @@ import {
   ChevronRight,
   Award,
   Medal,
-  Coins
+  Coins,
+  Printer,
+  FileText
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -159,7 +161,7 @@ const StudentCard: React.FC<StudentCardProps> = ({
           </div>
           <button 
             onClick={() => onAddPoints(student.id)}
-            className="mt-1 text-xs font-bold text-brand-primary hover:underline flex items-center gap-1 ml-auto"
+            className="mt-1 text-xs font-bold text-brand-primary hover:underline flex items-center gap-1 ml-auto no-print"
           >
             Atribuir Pontos <ChevronRight size={12} />
           </button>
@@ -184,6 +186,10 @@ export default function App() {
   const [selectedStudentId, setSelectedStudentId] = useState<number | null>(null);
   const [newStudentName, setNewStudentName] = useState('');
   const [view, setView] = useState<'dashboard' | 'ranking'>('dashboard');
+
+  const handlePrint = () => {
+    window.print();
+  };
 
   const fetchStudents = async () => {
     const res = await fetch('/api/students');
@@ -286,7 +292,7 @@ export default function App() {
             </div>
           </div>
           
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 no-print">
             {showResetConfirm ? (
               <div className="flex items-center gap-1 bg-red-50 p-1 rounded-xl border border-red-100">
                 <span className="text-[10px] font-bold text-red-600 px-2 uppercase">Zerar tudo?</span>
@@ -325,14 +331,21 @@ export default function App() {
               </>
             )}
             <button 
+              onClick={handlePrint}
+              className="p-2 rounded-xl text-slate-400 hover:text-brand-primary hover:bg-slate-100 transition-colors no-print"
+              title="Imprimir Relatório"
+            >
+              <Printer size={20} />
+            </button>
+            <button 
               onClick={() => setView('dashboard')}
-              className={`px-4 py-2 rounded-xl font-bold text-sm transition-colors ${view === 'dashboard' ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-500 hover:bg-slate-100'}`}
+              className={`px-4 py-2 rounded-xl font-bold text-sm transition-colors no-print ${view === 'dashboard' ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-500 hover:bg-slate-100'}`}
             >
               Painel
             </button>
             <button 
               onClick={() => setView('ranking')}
-              className={`px-4 py-2 rounded-xl font-bold text-sm transition-colors ${view === 'ranking' ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-500 hover:bg-slate-100'}`}
+              className={`px-4 py-2 rounded-xl font-bold text-sm transition-colors no-print ${view === 'ranking' ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-500 hover:bg-slate-100'}`}
             >
               Ranking
             </button>
@@ -343,7 +356,7 @@ export default function App() {
       <main className="max-w-5xl mx-auto px-4 py-8">
         {view === 'dashboard' ? (
           <>
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-8 no-print">
               <div>
                 <h2 className="text-3xl font-black text-slate-800">Projeto Exploradores do Conhecimento</h2>
                 <p className="text-slate-500 font-medium">Professor Clodovalter de Oliveira</p>

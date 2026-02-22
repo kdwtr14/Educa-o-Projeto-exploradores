@@ -33,7 +33,26 @@ h1, h2, h3, h4 {
   @apply bg-brand-primary text-white px-4 py-2 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-primary/20;
 }
 
-.btn-secondary {
-  @apply bg-brand-secondary text-white px-4 py-2 rounded-xl font-bold transition-all hover:scale-105 active:scale-95 shadow-lg shadow-brand-secondary/20;
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    background-image: none !important;
+  }
+  header {
+    position: static !important;
+    background: white !important;
+    border-bottom: 2px solid #e2e8f0 !important;
+  }
+  .glass-card {
+    background: white !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+  }
+  footer {
+    display: none !important;
+  }
 }
 

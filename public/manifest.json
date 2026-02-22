@@ -1,0 +1,17 @@
+{
+  "name": "Exploradores do Conhecimento 4ºB",
+  "short_name": "Exploradores 4ºB",
+  "description": "Projeto de gamificação escolar para o 4ºB. Professor Clodovalter de Oliveira.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3112/3112946.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
